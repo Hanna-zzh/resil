@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>团队与人员 - RESIL FARM</title>
+    <!-- 引入 Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- 引入 Font Awesome 图标 -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    
+    <style>
+        /* 复用主页配色 */
+        :root {
+            --primary-green-dark: #033E2C; 
+            --primary-green-light: #0A7D55;
+            --tech-cyan: #00FFC8;
+            --text-dark: #333333;
+            --bg-light: #F9FAFB;
+        }
+
+        body {
+            font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+            color: var(--text-dark);
+            background-color: var(--bg-light);
+            line-height: 1.6;
+        }
+
+        /* 导航栏样式 */
+        .navbar {
+            background: linear-gradient(to right, var(--primary-green-dark), var(--primary-green-light)) !important;
+            padding-top: 1rem;
+            padding-bottom: 1rem;
+        }
+        .navbar-brand { font-weight: 700; color: white !important; display: flex; align-items: center; }
+        .nav-link { color: rgba(255,255,255,0.8) !important; font-weight: 500; margin-left: 15px; transition: all 0.3s; }
+        .nav-link:hover { color: var(--tech-cyan) !important; transform: translateY(-2px); }
+
+        /* 头部 Banner */
+        .intro-header {
+            background: url('https://source.unsplash.com/1600x600/?team,scientist') no-repeat center center;
+            background-size: cover;
+            height: 350px;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+        }
+        .intro-header::before {
+            content: ""; position: absolute; top: 0; left: 0; right: 0; bottom: 0;
+            background: rgba(3, 62, 44, 0.85);
+        }
+        .intro-header-content { position: relative; z-index: 2; text-align: center; }
+
+        /* 内容区域 */
+        .section-padding { padding: 60px 0; }
+        .section-title {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--primary-green-dark);
+            margin-bottom: 40px;
+            position: relative;
+            padding-left: 15px;
+            border-left: 5px solid var(--primary-green-light);
+        }
+
+        /* 团队卡片样式 */
+        .team-card {
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            transition: 0.3s;
+            height: 100%;
+        }
+        .team-card:hover { transform: translateY(-10px); box-shadow: 0 15px 30px rgba(0,0,0,0.1); }
+        .team-img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+        .team-body { padding: 25px; }
+        .team-name { font-size: 1.25rem; font-weight: 700; color: var(--primary-green-dark); margin-bottom: 10px; }
+        .team-role { color: var(--primary-green-light); font-weight: 600; font-size: 0.9rem; margin-bottom: 15px; display: block; }
+        .team-desc { font-size: 0.95rem; color: #666; margin-bottom: 0; }
+
+        /* 人员头像样式 (圆形) */
+        .researcher-card { text-align: center; padding: 30px; background: white; border-radius: 12px; transition: 0.3s; height: 100%; border: 1px solid #eee; }
+        .researcher-card:hover { box-shadow: 0 10px 20px rgba(0,0,0,0.08); border-color: var(--primary-green-light); }
+        .researcher-avatar {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-bottom: 20px;
+            border: 4px solid #f0fdf4;
+        }
+        
+        /* 锚点偏移 (防止导航栏遮挡) */
+        .anchor-offset { scroll-margin-top: 100px; }
+
+        /* 页脚样式 */
+        .footer-section { background: linear-gradient(to right, var(--primary-green-dark), var(--primary-green-light)); color: white; padding: 60px 0 30px; }
+    </style>
+</head>
+<body>
+
+    <!-- 导航栏 -->
+    <nav class="navbar navbar-expand-lg navbar-dark">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">
+                <i class="fas fa-leaf me-2"></i> 
+                <div>RESIL FARM</div>
+            </a>
+            <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+                <ul class="navbar-nav align-items-center">
+                    <li class="nav-item"><a class="nav-link" href="index.html">返回首页</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#teams">科研团队</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#researchers">科研人员</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- 头部 Banner -->
+    <header class="intro-header">
+        <div class="container intro-header-content">
+            <h1 class="display-4 fw-bold">团队与人员</h1>
+            <p class="lead">Our Team & Researchers</p>
+        </div>
+    </header>
+
+    <!-- 1. 科研团队板块 -->
+    <section id="teams" class="section-padding anchor-offset">
+        <div class="container">
+            <h2 class="section-title">科研团队</h2>
+            <div class="row g-4">
+                <!-- 团队 1 -->
+                <div class="col-md-6 col-lg-4">
+                    <div class="team-card" id="team-monitor">
+                        <img src="https://source.unsplash.com/600x400/?research-team,lab" class="team-img" alt="监测团队">
+                        <div class="team-body">
+                            <h4 class="team-name">空天地监测技术团队</h4>
+                            <span class="team-role">负责人：李教授</span>
+                            <p class="team-desc">专注于利用卫星遥感、无人机及地面传感器网络，构建高精度的农田碳通量监测体系。</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- 团队 2 -->
+                <div class="col-md-6 col-lg-4">
+                    <div class="team-card" id="team-model">
+                        <img src="https://source.unsplash.com/600x400/?computer,data" class="team-img" alt="模拟团队">
+                        <div class="team-body">
+                            <h4 class="team-name">气候模拟与大数据团队</h4>
+                            <span class="team-role">负责人：Dr. Smith</span>
+                            <p class="team-desc">负责开发气候智慧型农业决策支持系统，通过大数据模拟预测不同气候情景下的作物产量。</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- 团队 3 -->
+                <div class="col-md-6 col-lg-4">
+                    <div class="team-card" id="team-soil">
+                        <img src="https://source.unsplash.com/600x400/?soil,plant" class="team-img" alt="土壤团队">
+                        <div class="team-body">
+                            <h4 class="team-name">土壤固碳机理团队</h4>
+                            <span class="team-role">负责人：王研究员</span>
+                            <p class="team-desc">深入研究土壤微生物群落结构与碳氮循环的耦合机制，挖掘农田土壤固碳潜力。</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 2. 科研人员板块 -->
+    <section id="researchers" class="section-padding anchor-offset" style="background-color: #f4f6f8;">
+        <div class="container">
+            <h2 class="section-title">科研人员</h2>
+            <div class="row g-4">
+                <!-- 人员 1 -->
+                <div class="col-sm-6 col-md-4 col-lg-3">
+                    <div class="researcher-card">
+                        <img src="https://source.unsplash.com/200x200/?portrait,man" class="researcher-avatar" alt="Avatar">
+                        <h5 class="mb-1">张伟 教授</h5>
+                        <p class="text-success small mb-3">首席科学家</p>
+                        <p class="small text-muted">中国农业科学院环发所研究员，长期从事气候变化与农业生态研究。</p>
+                    </div>
+                </div>
+                <!-- 人员 2 -->
+                <div class="col-sm-6 col-md-4 col-lg-3">
+                    <div class="researcher-card">
+                        <img src="https://source.unsplash.com/200x200/?portrait,woman" class="researcher-avatar" alt="Avatar">
+                        <h5 class="mb-1">Prof. Elena</h5>
+                        <p class="text-success small mb-3">欧方负责人</p>
+                        <p class="small text-muted">来自瓦赫宁根大学，专注于农业生态系统碳循环模拟。</p>
+                    </div>
+                </div>
+                <!-- 人员 3 -->
+                <div class="col-sm-6 col-md-4 col-lg-3">
+                    <div class="researcher-card">
+                        <img src="https://source.unsplash.com/200x200/?portrait,man,glasses" class="researcher-avatar" alt="Avatar">
+                        <h5 class="mb-1">李明 博士</h5>
+                        <p class="text-success small mb-3">副研究员</p>
+                        <p class="small text-muted">负责田间实验数据的采集与质量控制，精通涡度相关技术。</p>
+                    </div>
+                </div>
+                <!-- 人员 4 -->
+                <div class="col-sm-6 col-md-4 col-lg-3">
+                    <div class="researcher-card">
+                        <img src="https://source.unsplash.com/200x200/?portrait,woman,smile" class="researcher-avatar" alt="Avatar">
+                        <h5 class="mb-1">Dr. Sarah</h5>
+                        <p class="text-success small mb-3">博士后</p>
+                        <p class="small text-muted">研究方向为作物生长模型优化与应用。</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 页脚 -->
+    <footer class="footer-section text-center">
+        <div class="container">
+            <p class="mb-0">© 2026 RESIL FARM Project. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
