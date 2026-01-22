@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>新闻动态 - RESIL FARM</title>
+    <!-- 引入 Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- 引入 Font Awesome 图标 -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    
+    <style>
+        /* 复用主页配色 */
+        :root {
+            --primary-green-dark: #033E2C; 
+            --primary-green-light: #0A7D55;
+            --tech-cyan: #00FFC8;
+            --text-dark: #333333;
+            --bg-light: #F9FAFB;
+        }
+
+        body {
+            font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+            color: var(--text-dark);
+            background-color: var(--bg-light);
+            line-height: 1.6;
+        }
+
+        /* 导航栏样式 */
+        .navbar {
+            background: linear-gradient(to right, var(--primary-green-dark), var(--primary-green-light)) !important;
+            padding-top: 1rem;
+            padding-bottom: 1rem;
+        }
+        .navbar-brand { font-weight: 700; color: white !important; display: flex; align-items: center; }
+        .nav-link { color: rgba(255,255,255,0.8) !important; font-weight: 500; margin-left: 15px; transition: all 0.3s; }
+        .nav-link:hover { color: var(--tech-cyan) !important; transform: translateY(-2px); }
+
+        /* 头部 Banner */
+        .intro-header {
+            background: url('https://source.unsplash.com/1600x600/?news,conference') no-repeat center center;
+            background-size: cover;
+            height: 350px;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+        }
+        .intro-header::before {
+            content: ""; position: absolute; top: 0; left: 0; right: 0; bottom: 0;
+            background: rgba(3, 62, 44, 0.85);
+        }
+        .intro-header-content { position: relative; z-index: 2; text-align: center; }
+
+        /* 内容板块样式 */
+        .section-box {
+            background: white;
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            margin-bottom: 30px;
+        }
+        
+        /* 新闻列表项样式 */
+        .news-item-link {
+            text-decoration: none;
+            color: inherit;
+            display: block;
+            transition: 0.3s;
+            border-bottom: 1px solid #eee;
+            padding: 25px 0;
+        }
+        .news-item-link:last-child { border-bottom: none; }
+        .news-item-link:hover {
+            background-color: #f8fcf9;
+            padding-left: 15px;
+            border-left: 4px solid var(--primary-green-light);
+        }
+        .news-date-box {
+            background: #f0fdf4;
+            color: var(--primary-green-dark);
+            padding: 10px;
+            border-radius: 8px;
+            text-align: center;
+            min-width: 80px;
+        }
+        .news-day { font-size: 1.5rem; font-weight: bold; line-height: 1; }
+        .news-ym { font-size: 0.8rem; }
+        
+        .news-title { font-size: 1.2rem; font-weight: 700; color: #2c3e50; margin-bottom: 8px; }
+        .news-summary { color: #666; font-size: 0.95rem; margin-bottom: 0; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
+        .news-tag { font-size: 0.75rem; padding: 2px 8px; border-radius: 4px; background: #e0f2f1; color: #00695c; margin-right: 10px; }
+
+        /* 分页 */
+        .page-link { color: var(--primary-green-dark); }
+        .page-item.active .page-link { background-color: var(--primary-green-dark); border-color: var(--primary-green-dark); }
+
+        /* 页脚样式 */
+        .footer-section { background: linear-gradient(to right, var(--primary-green-dark), var(--primary-green-light)); color: white; padding: 60px 0 30px; }
+    </style>
+</head>
+<body>
+
+    <!-- 导航栏 -->
+    <nav class="navbar navbar-expand-lg navbar-dark">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">
+                <i class="fas fa-leaf me-2"></i> 
+                <div>RESIL FARM</div>
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+                <ul class="navbar-nav align-items-center">
+                    <li class="nav-item"><a class="nav-link" href="index.html">返回首页</a></li>
+                    <li class="nav-item"><a class="nav-link" href="index.html#resources">资源中心</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- 头部 Banner -->
+    <header class="intro-header">
+        <div class="container intro-header-content">
+            <h1 class="display-4 fw-bold">新闻动态</h1>
+            <p class="lead">News & Events</p>
+        </div>
+    </header>
+
+    <!-- 主要内容区 -->
+    <div class="container" style="margin-top: -50px; position: relative; z-index: 10;">
+        <div class="row justify-content-center">
+            <div class="col-lg-10">
+                <div class="section-box">
+                    <!-- 面包屑 -->
+                    <nav aria-label="breadcrumb" class="mb-4">
+                        <ol class="breadcrumb">
+                            <li class="breadcrumb-item"><a href="index.html" class="text-success text-decoration-none">首页</a></li>
+                            <li class="breadcrumb-item active" aria-current="page">综合新闻</li>
+                        </ol>
+                    </nav>
+
+                    <!-- 新闻列表 -->
+                    <div class="news-list-container">
+                        
+                        <!-- 新闻条目 1 -->
+                        <a href="news-detail.html" class="news-item-link">
+                            <div class="d-flex align-items-start">
+                                <div class="news-date-box me-4">
+                                    <div class="news-day">15</div>
+                                    <div class="news-ym">2026.01</div>
+                                </div>
+                                <div>
+                                    <h4 class="news-title"><span class="badge bg-danger me-2" style="font-size: 0.5em; vertical-align: middle;">HOT</span>项目启动会暨实施方案论证会顺利召开</h4>
+                                    <p class="news-summary">2026年1月，来自中国、欧洲等多国专家齐聚北京，共同论证了RESIL FARM项目的实施路线图，确立了未来三年的核心研究指标。科技部相关领导出席会议并致辞。</p>
+                                    <div class="mt-2">
+                                        <span class="news-tag">综合新闻</span>
+                                        <span class="news-tag">会议报道</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+
+                        <!-- 新闻条目 2 -->
+                        <a href="news-detail.html" class="news-item-link">
+                            <div class="d-flex align-items-start">
+                                <div class="news-date-box me-4">
+                                    <div class="news-day">28</div>
+                                    <div class="news-ym">2025.12</div>
+                                </div>
+                                <div>
+                                    <h4 class="news-title">中欧合作伙伴就数据共享协议达成一致</h4>
+                                    <p class="news-summary">经过三轮磋商，中方项目组与欧盟合作伙伴正式签署了《RESIL FARM 数据管理与共享协议》，为后续田间通量监测数据的跨境分析奠定了法律基础。</p>
+                                    <div class="mt-2">
+                                        <span class="news-tag">国际合作</span>
+                                        <span class="news-tag">数据共享</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+
+                        <!-- 新闻条目 3 -->
+                        <a href="news-detail.html" class="news-item-link">
+                            <div class="d-flex align-items-start">
+                                <div class="news-date-box me-4">
+                                    <div class="news-day">10</div>
+                                    <div class="news-ym">2025.11</div>
+                                </div>
+                                <div>
+                                    <h4 class="news-title">项目组赴东北实验基地进行冬季设备维护</h4>
+                                    <p class="news-summary">为了确保冬季冻融期土壤呼吸数据的连续性，项目组青年骨干顶风冒雪前往黑龙江海伦实验站，对涡度相关系统进行了全面维护和校准。</p>
+                                    <div class="mt-2">
+                                        <span class="news-tag">科研动态</span>
+                                        <span class="news-tag">基地建设</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+
+                        <!-- 新闻条目 4 -->
+                        <a href="news-detail.html" class="news-item-link">
+                            <div class="d-flex align-items-start">
+                                <div class="news-date-box me-4">
+                                    <div class="news-day">05</div>
+                                    <div class="news-ym">2025.10</div>
+                                </div>
+                                <div>
+                                    <h4 class="news-title">科技部国际合作司领导视察项目进展情况</h4>
+                                    <p class="news-summary">科技部相关领导一行莅临中国农科院环发所，听取了项目首席科学家关于项目前期准备工作的汇报，并对项目在应对气候变化领域的战略意义给予了高度评价。</p>
+                                    <div class="mt-2">
+                                        <span class="news-tag">综合新闻</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+
+                    </div>
+
+                    <!-- 分页导航 -->
+                    <nav aria-label="Page navigation" class="mt-5">
+                        <ul class="pagination justify-content-center">
+                            <li class="page-item disabled"><a class="page-link" href="#" tabindex="-1">上一页</a></li>
+                            <li class="page-item active"><a class="page-link" href="#">1</a></li>
+                            <li class="page-item"><a class="page-link" href="#">2</a></li>
+                            <li class="page-item"><a class="page-link" href="#">3</a></li>
+                            <li class="page-item"><a class="page-link" href="#">下一页</a></li>
+                        </ul>
+                    </nav>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 页脚 -->
+    <footer class="footer-section text-center">
+        <div class="container">
+            <p class="mb-0">© 2026 RESIL FARM Project. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

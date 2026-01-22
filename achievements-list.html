@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>研究成果 - RESIL FARM</title>
+    <!-- 引入 Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- 引入 Font Awesome 图标 -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    
+    <style>
+        :root {
+            --primary-green-dark: #033E2C; 
+            --primary-green-light: #0A7D55;
+            --tech-cyan: #4ea25a;
+            --text-dark: #333333;
+            --bg-light: #F9FAFB;
+        }
+
+        body {
+            font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+            color: var(--text-dark);
+            background-color: var(--bg-light);
+            line-height: 1.6;
+        }
+
+        .navbar {
+            background: linear-gradient(to right, var(--primary-green-dark), var(--primary-green-light)) !important;
+            padding-top: 1rem;
+            padding-bottom: 1rem;
+        }
+        .navbar-brand { font-weight: 700; color: white !important; display: flex; align-items: center; }
+        .nav-link { color: rgba(255,255,255,0.8) !important; font-weight: 500; margin-left: 15px; transition: all 0.3s; }
+        .nav-link:hover { color: var(--tech-cyan) !important; transform: translateY(-2px); }
+
+        .intro-header {
+            background: url('https://source.unsplash.com/1600x600/?library,books') no-repeat center center;
+            background-size: cover;
+            height: 350px;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+        }
+        .intro-header::before {
+            content: ""; position: absolute; top: 0; left: 0; right: 0; bottom: 0;
+            background: rgba(3, 62, 44, 0.85);
+        }
+        .intro-header-content { position: relative; z-index: 2; text-align: center; }
+
+        .section-box {
+            background: white;
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            margin-bottom: 30px;
+        }
+
+        /* 成果列表项样式 */
+        .achievement-item {
+            padding: 20px;
+            border-bottom: 1px solid #eee;
+            transition: 0.3s;
+            display: block;
+            text-decoration: none;
+            color: #333;
+        }
+        .achievement-item:last-child { border-bottom: none; }
+        .achievement-item:hover {
+            background-color: #f0fdf4;
+            transform: translateX(5px);
+            border-radius: 8px;
+        }
+        .ach-tag {
+            font-size: 0.75rem;
+            padding: 2px 8px;
+            border-radius: 4px;
+            margin-right: 10px;
+            font-weight: bold;
+        }
+        .tag-paper { background: #e3f2fd; color: #0d47a1; }
+        .tag-patent { background: #fff3e0; color: #e65100; }
+        
+        .ach-title { font-size: 1.1rem; font-weight: 700; color: var(--primary-green-dark); margin-bottom: 5px; }
+        .ach-meta { font-size: 0.9rem; color: #666; }
+        .ach-icon { font-size: 1.5rem; color: #ccc; margin-left: 15px; }
+
+        .footer-section { background: linear-gradient(to right, var(--primary-green-dark), var(--primary-green-light)); color: white; padding: 60px 0 30px; }
+    </style>
+</head>
+<body>
+
+    <nav class="navbar navbar-expand-lg navbar-dark">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">
+                <i class="fas fa-leaf me-2"></i> 
+                <div>RESIL FARM</div>
+            </a>
+            <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+                <ul class="navbar-nav align-items-center">
+                    <li class="nav-item"><a class="nav-link" href="index.html">返回首页</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <header class="intro-header">
+        <div class="container intro-header-content">
+            <h1 class="display-4 fw-bold">研究成果</h1>
+            <p class="lead">Publications & Patents</p>
+        </div>
+    </header>
+
+    <div class="container" style="margin-top: -50px; position: relative; z-index: 10;">
+        <div class="row justify-content-center">
+            <div class="col-lg-10">
+                <div class="section-box">
+                    
+                    <div class="d-flex justify-content-between align-items-center mb-4">
+                        <h4 style="color: var(--primary-green-dark); font-weight:bold;">成果列表</h4>
+                        <div class="btn-group btn-group-sm">
+                            <button class="btn btn-outline-success active">全部</button>
+                            <button class="btn btn-outline-success">论文</button>
+                            <button class="btn btn-outline-success">专利</button>
+                        </div>
+                    </div>
+
+                    <!-- 列表开始 -->
+                    <div class="achievement-list">
+                        
+                        <!-- 论文 1 -->
+                        <a href="https://www.nature.com" target="_blank" class="achievement-item">
+                            <div class="d-flex align-items-center justify-content-between">
+                                <div>
+                                    <span class="ach-tag tag-paper">SCI 论文</span>
+                                    <div class="ach-title mt-2">Synergistic mechanism of yield and carbon sequestration in croplands</div>
+                                    <div class="ach-meta">
+                                        <i class="far fa-newspaper me-2"></i>Nature Food
+                                        <span class="mx-2">|</span>
+                                        <i class="far fa-calendar-alt me-2"></i>2026-02
+                                        <span class="mx-2">|</span>
+                                        <i class="far fa-user me-2"></i>Zhang W., Smith J., et al.
+                                    </div>
+                                </div>
+                                <i class="fas fa-external-link-alt ach-icon"></i>
+                            </div>
+                        </a>
+
+                        <!-- 专利 1 -->
+                        <a href="#" class="achievement-item">
+                            <div class="d-flex align-items-center justify-content-between">
+                                <div>
+                                    <span class="ach-tag tag-patent">发明专利</span>
+                                    <div class="ach-title mt-2">一种便携式农田温室气体自动采样装置</div>
+                                    <div class="ach-meta">
+                                        <i class="fas fa-barcode me-2"></i>ZL202510123456.X
+                                        <span class="mx-2">|</span>
+                                        <i class="far fa-check-circle me-2"></i>已授权
+                                    </div>
+                                </div>
+                                <i class="fas fa-chevron-right ach-icon"></i>
+                            </div>
+                        </a>
+
+                        <!-- 论文 2 -->
+                        <a href="#" class="achievement-item">
+                            <div class="d-flex align-items-center justify-content-between">
+                                <div>
+                                    <span class="ach-tag tag-paper">SCI 论文</span>
+                                    <div class="ach-title mt-2">Global patterns of soil respiration under climate warming</div>
+                                    <div class="ach-meta">
+                                        <i class="far fa-newspaper me-2"></i>Global Change Biology
+                                        <span class="mx-2">|</span>
+                                        <i class="far fa-calendar-alt me-2"></i>2025-11
+                                    </div>
+                                </div>
+                                <i class="fas fa-external-link-alt ach-icon"></i>
+                            </div>
+                        </a>
+
+                    </div>
+                    <!-- 列表结束 -->
+
+                    <!-- 分页 -->
+                    <nav aria-label="Page navigation" class="mt-5">
+                        <ul class="pagination justify-content-center">
+                            <li class="page-item disabled"><a class="page-link" href="#">上一页</a></li>
+                            <li class="page-item active"><a class="page-link" href="#">1</a></li>
+                            <li class="page-item"><a class="page-link" href="#">2</a></li>
+                            <li class="page-item"><a class="page-link" href="#">下一页</a></li>
+                        </ul>
+                    </nav>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer class="footer-section text-center">
+        <div class="container">
+            <p class="mb-0">© 2026 RESIL FARM Project. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+</body>
+</html>

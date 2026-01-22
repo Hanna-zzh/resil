@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>新闻详情 - RESIL FARM</title>
+    <!-- 引入 Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- 引入 Font Awesome 图标 -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    
+    <style>
+        /* --- 复用主页的配色与基础样式 --- */
+        :root {
+            --primary-green-dark: #033E2C; 
+            --primary-green-light: #0A7D55;
+            --tech-cyan: #00FFC8;
+            --text-dark: #333333;
+            --bg-light: #F9FAFB;
+        }
+
+        body {
+            font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+            color: var(--text-dark);
+            background-color: var(--bg-light);
+        }
+
+        /* 导航栏样式 (与主页保持一致) */
+        .navbar {
+            background: linear-gradient(to right, var(--primary-green-dark), var(--primary-green-light)) !important;
+            padding-top: 1rem;
+            padding-bottom: 1rem;
+        }
+        .navbar-brand { font-weight: 700; color: white !important; display: flex; align-items: center; }
+        .nav-link { color: rgba(255,255,255,0.8) !important; font-weight: 500; margin-left: 15px; transition: all 0.3s; }
+        .nav-link:hover { color: var(--tech-cyan) !important; transform: translateY(-2px); }
+        .btn-search { color: white; font-size: 1.2rem; margin-left: 20px; background: transparent; border: none; }
+
+        /* --- 新闻文章主体样式 --- */
+        .article-container {
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+            padding: 40px;
+            margin-top: -60px; /* 向上重叠，增加设计感 */
+            position: relative;
+            z-index: 10;
+        }
+
+        .article-header-bg {
+            background-color: var(--primary-green-dark);
+            height: 200px; /* 顶部绿色装饰条 */
+            width: 100%;
+        }
+
+        .article-title { font-size: 2.5rem; font-weight: 700; color: var(--primary-green-dark); margin-bottom: 15px; }
+        .article-meta { color: #888; font-size: 0.9rem; margin-bottom: 30px; border-bottom: 1px solid #eee; padding-bottom: 20px; }
+        .article-meta span { margin-right: 20px; }
+        
+        .article-content { font-size: 1.1rem; line-height: 1.8; color: #444; }
+        .article-content p { margin-bottom: 20px; }
+        .article-content img { max-width: 100%; border-radius: 8px; margin: 20px 0; box-shadow: 0 4px 12px rgba(0,0,0,0.1); }
+        
+        .btn-back { margin-top: 40px; display: inline-block; }
+
+        /* 页脚样式 */
+        .footer-section { background: linear-gradient(to right, var(--primary-green-dark), var(--primary-green-light)); color: white; padding: 60px 0 30px; margin-top: 60px; }
+        .footer-logo-item img { height: 50px; background: white; padding: 5px 10px; border-radius: 4px; }
+    </style>
+</head>
+<body>
+
+    <!-- 导航栏 -->
+    <nav class="navbar navbar-expand-lg navbar-dark">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">
+                <i class="fas fa-leaf me-2"></i> 
+                <div>RESIL FARM</div>
+            </a>
+            <div class="collapse navbar-collapse justify-content-end">
+                <ul class="navbar-nav align-items-center">
+                    <!-- 注意：这里 href 改回了 index.html，方便用户返回首页 -->
+                    <li class="nav-item"><a class="nav-link" href="index.html">首页</a></li>
+                    <li class="nav-item"><a class="nav-link" href="index.html#resources">资源中心</a></li>
+                    <li class="nav-item"><a class="nav-link" href="index.html#partners">合作伙伴</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- 顶部装饰背景 -->
+    <div class="article-header-bg"></div>
+
+    <!-- 文章内容区域 -->
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-lg-10">
+                <div class="article-container">
+                    <!-- 面包屑导航 -->
+                    <nav aria-label="breadcrumb" style="margin-bottom: 20px;">
+                        <ol class="breadcrumb">
+                            <li class="breadcrumb-item"><a href="index.html" class="text-decoration-none text-success">首页</a></li>
+                            <li class="breadcrumb-item"><a href="index.html#news" class="text-decoration-none text-success">综合新闻</a></li>
+                            <li class="breadcrumb-item active" aria-current="page">正文</li>
+                        </ol>
+                    </nav>
+
+                    <!-- 文章标题 -->
+                    <h1 class="article-title">项目启动会暨实施方案论证会顺利召开</h1>
+                    
+                    <!-- 文章信息 -->
+                    <div class="article-meta">
+                        <span><i class="far fa-calendar-alt me-2"></i>2026年1月15日</span>
+                        <span><i class="far fa-user me-2"></i>RESIL FARM 秘书处</span>
+                        <span><i class="far fa-eye me-2"></i>阅读: 1,208</span>
+                    </div>
+
+                    <!-- 正文内容 (在此处修改文字) -->
+                    <div class="article-content">
+                        <p class="lead"><strong>摘要：</strong> 2026年1月，来自中国、欧洲等多国专家齐聚北京，共同论证了RESIL FARM项目的实施路线图，确立了未来三年的核心研究指标。</p>
+                        
+                        <p>2026年1月10日，“农田稳产固碳协同机制及气候韧性调控合作研究”项目启动会在中国农业科学院顺利召开。会议由项目首席科学家主持，科技部相关领导、项目咨询专家组及各课题负责人共50余人参加了会议。</p>
+                        
+                        <!-- 插入图片 -->
+                        <img src="https://source.unsplash.com/1200x600/?conference,meeting" alt="会议现场">
+                        <p class="text-center text-muted small">图1：项目启动会现场合影</p>
+
+                        <h3>会议核心议程</h3>
+                        <p>会上，项目负责人详细汇报了项目实施方案。专家组对实施方案进行了质询和讨论，一致认为项目目标明确、技术路线合理、进度安排得当。特别是在以下三个方面达成了重要共识：</p>
+                        <ul>
+                            <li><strong>数据标准统一：</strong> 确立了中欧双方田间通量监测的数据格式与质控标准。</li>
+                            <li><strong>人员互访机制：</strong> 制定了青年科学家年度互访交流计划。</li>
+                            <li><strong>示范基地建设：</strong> 明确了东北黑土区与华北平原两个核心示范区的建设指标。</li>
+                        </ul>
+
+                        <p>最后，科技部领导发表讲话，强调了国际科技合作在应对全球气候变化中的重要意义，希望项目组能够产出具有国际影响力的重大成果。</p>
+                    </div>
+
+                    <!-- 返回按钮 -->
+                    <a href="index.html#news" class="btn btn-outline-success rounded-pill btn-back">
+                        <i class="fas fa-arrow-left me-2"></i> 返回新闻列表
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 页脚 -->
+    <footer class="footer-section">
+        <div class="container text-center">
+            <p>© 2026 RESIL FARM Project. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+</body>
+</html>
